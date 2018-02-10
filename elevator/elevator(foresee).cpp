@@ -52,7 +52,7 @@ void dfs()
 			for(int k=0;k<15;k++)//初始化 
 			{
 				dect[k].pos=0;
-				dect[k].time=0;
+				dect[k].time=0; 
 			}
 			for(int j=0;j<15;j++)
 			{
@@ -107,11 +107,16 @@ void dfs()
 			}
 			if((i==5)&&(ele.num_1!=0))
 			{
-				int p,l,t,a[5]={0};
+				int p,l,t,a[5]={0},flag=0;
 				p=ele.num_1;
 				ele.num_1=0;//清空第一层人 
 				t=ele.time;
 				ele.time+=abs(ele.pos-1);//运行时间增加 
+				if(ask[i].floor==ele.pos)//同时进多个人的数据处理 
+				{
+					ele.time--;
+					flag=1;
+				}
 				l=ele.pos;
 				ele.pos=1;//电梯位置更新 
 				de[u].time=ele.time;
@@ -127,6 +132,7 @@ void dfs()
 				}
 				dfs();//进入下一次移动 
 				ele.time--;
+				if(flag==1) ele.time++;
 				ele.num_1=p;
 				ele.pos=l;
 				for(int j=0;j<5;j++)
@@ -143,11 +149,16 @@ void dfs()
 			}
 			if((i==6)&&(ele.num_10!=0))
 			{
-				int p,l,t,a[5]={0};
+				int p,l,t,a[5]={0},flag=0;
 				p=ele.num_10;
 				ele.num_10=0;
 				t=ele.time;
 				ele.time+=abs(ele.pos-10);
+				if(ask[i].floor==ele.pos)//同时进多个人的数据处理 
+				{
+					ele.time--;
+					flag=1;
+				}
 				l=ele.pos;
 				ele.pos=10;
 				de[u].time=ele.time;
@@ -163,6 +174,7 @@ void dfs()
 				}
 				dfs();
 				ele.time--;
+				if(flag==1) ele.time++;
 				ele.num_10=p;
 				ele.pos=l;
 				for(int j=0;j<5;j++)
