@@ -14,14 +14,14 @@ struct setinfo{
 	int status;
 };
 struct seteleStat{
-	int position;
-	int direction;
-	int timeworked;
-	int arp;
+	int position;//位置 
+	int direction;//方向 
+	int timeworked;//运行时间 
+	int arp;// 
 	int are;
 	int requestion[5];// "5" is required to be changed when wishing a new amount of requestions.
 	int reexit[5];// "5" is required to be changed when wishing a new amount of requestions.
-	int waitingtime;
+	int waitingtime;//等待时间 
 	int sollutioncount;
 	int sollution[5 * 2];// "5" is required to be changed when wishing a new amount of requestions.
 };
@@ -56,12 +56,13 @@ int main(void){
 	int booleanew = 0;
 	eleStat.position = 1;
 	
-	fin.open("input.txt");
+	//fin.open("input.txt");
 	for(i = 0; i < requestionamount; i++){
-		fin>>info[i].asktime>>info[i].startfloor>>info[i].destination;
+		cin>>info[i].asktime>>info[i].startfloor>>info[i].destination;
+		//fin>>info[i].asktime>>info[i].startfloor>>info[i].destination;
 	}
-	fin.close();
-	fout.open("output.txt");
+	//fin.close();
+	//fout.open("output.txt");
 	while(end() == 0){
 		for(i = 0; i < requestionamount; i++){
 			if(info[i].asktime == eleStat.timeworked){
@@ -104,7 +105,8 @@ int main(void){
 		}
 		
 		if(enter(stimulation.bestsollution[0]) + exit0() != 0){
-			fout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
+			cout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
+			//fout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
 			eleStat.timeworked ++;
 		}
 		
@@ -115,9 +117,9 @@ int main(void){
 			stimulation.bestsollution[requestionamount * 2] = 0;
 		}
 	}
-	
-	fout<<eleStat.waitingtime;
-	fout.close();
+	cout<<eleStat.waitingtime;
+	//fout<<eleStat.waitingtime;
+	//fout.close();
 }
 
 
