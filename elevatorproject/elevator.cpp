@@ -56,13 +56,13 @@ int main(void){
 	int booleanew = 0;
 	eleStat.position = 1;
 	
-	//fin.open("input.txt");
+	fin.open("input.txt");
 	for(i = 0; i < requestionamount; i++){
-		cin>>info[i].asktime>>info[i].startfloor>>info[i].destination;
+		fin>>info[i].asktime>>info[i].startfloor>>info[i].destination;
 		//fin>>info[i].asktime>>info[i].startfloor>>info[i].destination;
 	}
-	//fin.close();
-	//fout.open("output.txt");
+	fin.close();
+	fout.open("output.txt");
 	while(end() == 0){
 		for(i = 0; i < requestionamount; i++){
 			if(info[i].asktime == eleStat.timeworked){
@@ -105,8 +105,8 @@ int main(void){
 		}
 		
 		if(enter(stimulation.bestsollution[0]) + exit0() != 0){
-			cout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
-			//fout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
+			//cout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
+			fout<<eleStat.timeworked<<"时，停靠在"<<eleStat.position<<"楼"<<endl;
 			eleStat.timeworked ++;
 		}
 		
@@ -117,9 +117,9 @@ int main(void){
 			stimulation.bestsollution[requestionamount * 2] = 0;
 		}
 	}
-	cout<<eleStat.waitingtime;
-	//fout<<eleStat.waitingtime;
-	//fout.close();
+	//cout<<eleStat.waitingtime;
+	fout<<eleStat.waitingtime;
+	fout.close();
 }
 
 

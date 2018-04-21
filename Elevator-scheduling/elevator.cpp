@@ -2,9 +2,10 @@
 #include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <fstream>
 #include "elevator.h"
 using namespace std;
-
+ofstream fo;
 elevator::elevator()
 {
 	time = 0;
@@ -245,8 +246,8 @@ int elevator::get_time(void)
 	return time;
 }
 
-void elevator::run(ask (&arr)[100],int &ask_num,int &a,int &n)
-{
+void elevator::run(ask (&arr)[500],int &ask_num,int &a,const int &n)
+{ 
 	if((up[pu.left].floor == 0) && (down[pd.left].floor == 0))//bug2
 	{
 	    time ++;
@@ -294,7 +295,7 @@ void elevator::run(ask (&arr)[100],int &ask_num,int &a,int &n)
 				        }
 				        if(a != up[pu.left].floor)//若另一队列最后元素与此队列元素相同不反复停靠 
 				        {
-				            cout << (time-1) << " " << (pos-1) << endl;
+				            fo << (time-1) << " " << (pos-1) << endl;
 				            time ++;
 						}
 				        pu.left ++;//队列头向后移动 
@@ -352,7 +353,7 @@ void elevator::run(ask (&arr)[100],int &ask_num,int &a,int &n)
 			    	   	}
 			    	   	if(a != down[pd.left].floor)//bug4
 			    	   	{
-			    	   	    cout << (time-1) << " " << (pos-1) << endl;
+			    	   	    fo << (time-1) << " " << (pos-1) << endl;
 			    	    	time ++;
 						}
 			    	    pd.left ++;//队列头向后移动 
@@ -371,3 +372,20 @@ void elevator::run(ask (&arr)[100],int &ask_num,int &a,int &n)
 	    }
 	}
 } 
+
+void elevator::coo(int &ask_num,ask (&arr)[500],int &a,const int &n)
+{
+	fo.open("output.txt"); 
+	while(ask_num)
+	{   //构建队列 
+		for(int i = 0; i < n; i ++)
+		{
+			if( time == arr[i].time)
+				cre(i,arr[i].floor,arr[i].des);
+		}
+        sorting();
+        //电梯运行
+        run(arr,ask_num,a,n);
+    }
+    fo.close();
+}
