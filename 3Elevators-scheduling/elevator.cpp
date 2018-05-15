@@ -335,7 +335,7 @@ void elevator::run(ask (&arr)[500],int &ask_num,int &n,int &a)
 				} 
 			} 
 		}
-		else//电梯模式为下行
+		if (sta == 1)//电梯模式为下行
 		{
 			if(down[pd.left].floor == 0)
 			{
@@ -472,7 +472,7 @@ void elevator_odd::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 				}
 			}
 		}
-		else//电梯模式为下行
+		if (sta == 1)//电梯模式为下行
 		{
 			if (down[pd.left].floor == 0)
 			{
@@ -609,7 +609,7 @@ void elevator_even::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 				}
 			}
 		}
-		else//电梯模式为下行
+		if (sta == 1)//电梯模式为下行
 		{
 			if (down[pd.left].floor == 0)
 			{
