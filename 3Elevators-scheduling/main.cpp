@@ -54,7 +54,7 @@ int main()
 				}
 			}
 		}
-		if(fi!=-1) fi = fi_p;
+		if (fi_p != 0) fi = fi_p;//the new bug
         ele.sorting();
 		ele_odd.sorting();
 		ele_even.sorting();
