@@ -42,18 +42,18 @@ public:
 	int get_sta(void);
 	void sorting(void);
 	void cre(int i,int a,int b);
-	virtual void run(ask (&arr)[500],int &ask_num,int &n,int &a);
+	virtual void run(ask (&arr)[500],int &ask_num,int &n,int &a,char* adr);
 }; 
 
 class elevator_odd :public elevator//奇数电梯类
 {
 public:
-	virtual void run(ask(&arr)[500], int &ask_num, int &n, int &a);
+	virtual void run(ask(&arr)[500], int &ask_num, int &n, int &a,char* adr);
 };
 
 class elevator_even :public elevator//偶数电梯类
 {
 public:
-	virtual void run(ask(&arr)[500], int &ask_num, int &n, int &a);
+	virtual void run(ask(&arr)[500], int &ask_num, int &n, int &a,char* adr);
 };
 #endif

@@ -264,7 +264,7 @@ void elevator::cre(int i,int a,int b)//a->info[i].floor,b->info[i].des
 	}
 }
 
-void elevator::run(ask (&arr)[500],int &ask_num,int &n,int &a)
+void elevator::run(ask (&arr)[500],int &ask_num,int &n,int &a,char* adr)
 { 
 	if((up[pu.left].floor == 0) && (down[pd.left].floor == 0))//bug2
 	{
@@ -315,7 +315,7 @@ void elevator::run(ask (&arr)[500],int &ask_num,int &n,int &a)
 				        {   
 							if (time != arr[0].time)
 							{
-								fout.open("output2.txt", ios::app);
+								fout.open(adr, ios::app);
 								fout << time << " " << pos << endl;
 								fout.close();
 							}
@@ -378,7 +378,7 @@ void elevator::run(ask (&arr)[500],int &ask_num,int &n,int &a)
 			    	   	{
 							if (time != arr[0].time && pos!=1)
 							{
-								fout.open("output2.txt", ios::app);
+								fout.open(adr, ios::app);
 								fout << time << " " << pos << endl;
 								fout.close();
 							}
@@ -401,7 +401,7 @@ void elevator::run(ask (&arr)[500],int &ask_num,int &n,int &a)
 	}
 } 
 
-void elevator_odd::run(ask(&arr)[500], int &ask_num, int &n, int &a)
+void elevator_odd::run(ask(&arr)[500], int &ask_num, int &n, int &a,char* adr)
 {
 	if ((up[pu.left].floor == 0) && (down[pd.left].floor == 0))//bug2
 	{
@@ -452,7 +452,7 @@ void elevator_odd::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 						{
 							if (time != arr[0].time)
 							{
-								fout.open("output1.txt", ios::app);
+								fout.open(adr, ios::app);
 								fout << time << " " << pos << endl;
 								fout.close();
 							}
@@ -515,7 +515,7 @@ void elevator_odd::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 						{
 							if (time != arr[0].time)
 							{
-								fout.open("output1.txt", ios::app);
+								fout.open(adr, ios::app);
 								fout << time << " " << pos << endl;
 								fout.close();
 							}
@@ -538,7 +538,7 @@ void elevator_odd::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 	}
 }
 
-void elevator_even::run(ask(&arr)[500], int &ask_num, int &n, int &a)
+void elevator_even::run(ask(&arr)[500], int &ask_num, int &n, int &a,char* adr)
 {
 	if ((up[pu.left].floor == 0) && (down[pd.left].floor == 0))//bug2
 	{
@@ -589,7 +589,7 @@ void elevator_even::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 						{
 							if (time != arr[0].time)
 							{
-								fout.open("output3.txt", ios::app);
+								fout.open(adr, ios::app);
 								fout << time << " " << pos << endl;
 								fout.close();
 							}
@@ -652,7 +652,7 @@ void elevator_even::run(ask(&arr)[500], int &ask_num, int &n, int &a)
 						{
 							if (time != arr[0].time)
 							{
-								fout.open("output3.txt", ios::app);
+								fout.open(adr, ios::app);
 								fout << time << " " << pos << endl;
 								fout.close();
 							}
